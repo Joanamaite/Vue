@@ -33,7 +33,7 @@
                       </div>
                  
                       <div>
-                        <a href="#" class="btn mt-4">Enviar</a>
+                        <a @click="Home" class="btn mt-4">Enviar</a>
                       </div>
                       <p class="mb-0 mt-4 text-center"><a href="" class="link">Esqueceu sua senha?</a></p>
                     </div>
@@ -108,12 +108,16 @@ export default {
   methods: {
     handleCheck() {
       this.checked = !this.checked;
-    }
+    },
+    Home(){
+    this.$router.push("/")
   }
+  }
+ 
 };
 </script>
 
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 .body{
 	font-family: 'Poppins', sans-serif;
