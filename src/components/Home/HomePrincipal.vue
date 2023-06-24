@@ -73,8 +73,6 @@ export default {
   name: "HomePrincipal",
   methods: {
     jumpForward() {
-      // Adicione a lógica aqui para fazer o card pular para frente
-      // Você pode alterar a posição do card ou aplicar uma animação personalizada
     },
   },
 };
