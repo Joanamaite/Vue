@@ -88,7 +88,6 @@ export default{
   name:"HomePrincipal",
   
 };
- 
 </script>
 
 <style>

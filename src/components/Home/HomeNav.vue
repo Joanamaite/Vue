@@ -1,12 +1,13 @@
+
 <!-- eslint-disable vue/multi-word-component-names -->
 <template id="template">
-  <div>
+  <div v-if="$route.path !== '/Login'">
     <v-app-bar 
     app
     dark
   color="#1B2F4A"
   >
-  <v-toolbar-title ><img class="logo  ms-5 mt-3" src="@/Images/Logo.png"> </v-toolbar-title>
+  <v-toolbar-title ><img src="@/Images/Logo.png" class="logo  ms-5 mt-3"> </v-toolbar-title>
   <v-spacer/>
   <v-toolbar-itens>
     <v-btn text>
@@ -42,8 +43,6 @@
   </v-app-bar>
  
   </div>
-
-
   </template>
   
   <script>
@@ -51,10 +50,13 @@
     name: "HomeNav",
    methods:{
     cursos(){
-      this.$router.push("/cursos")//Não esxiste ainda
+      this.$router.push("/Cursos")//Não esxiste ainda
     },
     escola(){
       this.$router.push("/escola")//Não existe ainda
+    },
+    login(){
+      this.$router.push("/Login")
     },
   },
 
@@ -68,8 +70,7 @@
     background-color: #ffff;
   }
   .logo{
-    width: 3vw;
     height: 8vh;
+    position: relative;
   }
   </style>
-  
