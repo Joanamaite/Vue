@@ -60,20 +60,7 @@
                         <input type="password" name="confirmPassword" class="form-style" placeholder="Confirmar Senha" id="confirmPassword" autocomplete="off" v-model="confirmPassword" />
                         <i class="input-icon uil uil-lock-alt"></i>
                       </div>
-                      <div class="form-group" style="margin-top: 20px;">
-                        <input type="date" name="birthdate" class="form-style" id="birthdate" autocomplete="off" v-model="birthdate" />
-                        <i class="input-icon uil uil-calendar-alt"></i>
-                      </div>
-                      <div class="d-flex align-items-center">
-                        <div class="form-check form-check-inline" style="margin-top: 20px;">
-                          <input class="form-check-input" type="checkbox" id="adminCheckbox" name="admin" v-model="isProfessor" />
-                          <label class="form-check-label mr-2" for="adminCheckbox">Professor</label>
-                        </div>
-                        <div class="form-check form-check-inline" style="margin-top: 20px; margin-left: 150px;">
-                          <input class="form-check-input" type="checkbox" id="visitanteCheckbox" name="visitante" v-model="isStudent" />
-                          <label class="form-check-label" for="visitanteCheckbox">Aluno</label>
-                        </div>
-                      </div>
+                     
                       <a href="#" class="btn mt-4">Enviar</a>
                     </div>
                   </div>

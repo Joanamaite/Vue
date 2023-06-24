@@ -10,7 +10,9 @@
   <v-toolbar-title ><img src="@/Images/Logo.png" class="logo  ms-5 mt-3"> </v-toolbar-title>
   <v-spacer/>
   <v-toolbar-itens>
-    <v-btn text>
+    <v-btn text
+    @click="inicio"
+    >
       INÍCIO
     </v-btn>
     <v-btn 
@@ -25,15 +27,10 @@
     >
       ESCOLA
     </v-btn>
+   
     <v-btn 
     text
     @click="login"
-    >
-      LOGIN
-    </v-btn>
-    <v-btn 
-    text
-    @click="entrar"
     >
       ENTRAR
     </v-btn>
@@ -58,10 +55,11 @@
     login(){
       this.$router.push("/Login")
     },
+    inicio(){
+      this.$router.push("/")
+    },
   },
 
-  
-  
  };
   </script>
   
@@ -70,7 +68,7 @@
     background-color: #ffff;
   }
   .logo{
-    height: 8vh;
+    height: 9vh;
     position: relative;
   }
   </style>
