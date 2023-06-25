@@ -190,7 +190,7 @@ export default {
   font-weight: bold;
 }
 .botao:hover {
-  background-color: #1b2f4a;
+  background-color: #1b2f4a !important;
   color: #ffeba7;
 }
 .carrosel {
