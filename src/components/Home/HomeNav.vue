@@ -15,21 +15,12 @@
     >
       INÍCIO
     </v-btn>
-    <v-menu offset-y>
-            <template v-slot:activator="{ on }">
-              <v-btn text v-on="on">CURSOS</v-btn>
-            </template>
-            <v-list class="lista">
-              <v-list-item @click="action1">Informática</v-list-item>
-              <v-list-item @click="action2">Eletrônica</v-list-item>
-              <v-list-item @click="action3">Mecânica</v-list-item>
-              <v-list-item @click="action4">Eletrotécnica</v-list-item>
-              <v-list-item @click="action5">Meio Ambiente</v-list-item>
-              <v-list-item @click="action6">Química</v-list-item>
-              <v-list-item @click="action7">Móveis</v-list-item>
-              <v-list-item @click="action8">Design Móveis</v-list-item>
-            </v-list>
-          </v-menu>
+    <v-btn 
+    text
+    @click="cursos"
+    >
+      CURSOS
+    </v-btn>
     <v-btn 
     text
     @click="escola"
