@@ -42,7 +42,9 @@
               </v-card-text>
 
               <v-card-actions class="justify-end margens">
-                <v-btn color="white">visualizar</v-btn>
+                <v-btn color="white" @click="visualizar">
+                  visualizar
+                </v-btn>
               </v-card-actions>
             </v-card>
           </template>
@@ -73,6 +75,9 @@ export default {
   name: "HomePrincipal",
   methods: {
     jumpForward() {
+    },
+    visualizar(){
+      this.$router.push("/Visualizar")
     },
   },
 };
