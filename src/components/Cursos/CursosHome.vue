@@ -137,7 +137,7 @@ export default {
         {
           id: 2,
           image: require("@/Images/Capturar.jpg"),
-          subtitle: "   Ferramenta Para Projeto de Pesquisa",
+          subtitle: "Ferramenta Para Projeto de Pesquisa",
           location: "Com base em uma análise no ambiente escolar, este projeto tem como principal objetivo desenvolver um site de gerenciamento de TCCs",
         },
         {
