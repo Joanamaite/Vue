@@ -10,7 +10,7 @@
       <v-carousel-item src="@/Images/Rectangle 95.png" cover></v-carousel-item>
       <v-carousel-item src="@/Images/Classe.jpg" cover></v-carousel-item>
       <v-carousel-item src="@/Images/Rectangle 95.png" cover></v-carousel-item>
-      <v-carousel-item src="@/Images/Classe.jpg" cover></v-carousel-item>
+      <v-carousel-item src="@/Images/museum.jpg" cover></v-carousel-item>
     </v-carousel>
 
     <v-row class="fade-in-down">
@@ -28,17 +28,16 @@
               <v-img
                 class="align-end text-white"
                 height="200"
-                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                src="@/Images/Capturar.jpg"
                 cover
               ></v-img>
 
               <v-card-subtitle class="pt-4 escrita">
-                Number 10
+                Ferramenta Para Projeto de Pesquisa
               </v-card-subtitle>
 
               <v-card-text class="escrita">
-                <div>Whitehaven Beach</div>
-                <div>Whitsunday Island, Whitsunday Islands</div>
+                <div>Com base em uma análise no ambiente escolar, este projeto tem como principal objetivo desenvolver um site de gerenciamento de TCCs para a Escola Técnica Estadual Monteiro Lobato (Cimol).</div>
               </v-card-text>
 
               <v-card-actions class="justify-end margens">

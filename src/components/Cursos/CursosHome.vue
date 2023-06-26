@@ -90,7 +90,6 @@
               </v-card-subtitle>
 
               <v-card-text class="escrita">
-                <div>{{ card.title }}</div>
                 <div>{{ card.location }}</div>
               </v-card-text>
 
@@ -131,24 +130,21 @@ export default {
       cards: [
         {
           id: 1,
-          image: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+          image: require("@/Images/Capturar.jpg"),
           subtitle: "Number 1",
-          title: "Whitehaven Beach",
-          location: "Whitsunday Island, Whitsunday Islands",
+          location: "Com base em uma análise no ambiente escolar, este projeto tem como principal objetivo desenvolver um site de gerenciamento de TCCs",
         },
         {
           id: 2,
-          image: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
-          subtitle: "Number 1",
-          title: "Whitehaven Beach",
-          location: "Whitsunday Island, Whitsunday Islands",
+          image: require("@/Images/Capturar.jpg"),
+          subtitle: "   Ferramenta Para Projeto de Pesquisa",
+          location: "Com base em uma análise no ambiente escolar, este projeto tem como principal objetivo desenvolver um site de gerenciamento de TCCs",
         },
         {
           id: 3,
-          image: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+          image: require("@/Images/Capturar.jpg"),
           subtitle: "Number 1",
-          title: "Whitehaven Beach",
-          location: "Whitsunday Island, Whitsunday Islands",
+          location: "Com base em uma análise no ambiente escolar, este projeto tem como principal objetivo desenvolver um site de gerenciamento de TCCs",
         },
        
        
