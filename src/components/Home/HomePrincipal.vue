@@ -14,7 +14,7 @@
     </v-carousel>
 
     <v-row class="fade-in-down">
-      <v-col v-for="n in 9" :key="n" cols="12" sm="6" md="4" lg="3">
+      <v-col v-for="n in 8" :key="n" cols="12" sm="6" md="4" lg="3">
         <v-hover>
           <template v-slot="{ hover }">
             <v-card
@@ -96,11 +96,11 @@ export default {
 }
 
 .card:hover {
-  transform: scale(0.8) translateZ(-5000px);
+  transform: scale(0.9) translateY(-20px);
 }
-
+/*transform: SCALE(0.9) translateY(-30px);*/
 .elevate-12 {
-  transform:  translateZ(5000px);
+  transform:  translateY(50px);
 }
 
 .escrita {
@@ -124,11 +124,11 @@ export default {
 @keyframes fade-in-down {
   0% {
     opacity: 0;
-    transform: translateY(-57px);
+    transform: translateX(-57px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 </style>
