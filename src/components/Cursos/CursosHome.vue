@@ -120,13 +120,90 @@
   </div>
 </template>
 
-    
-    <script>
-    export default{
-      name:"CursosHome",
+<script>
+export default {
+  name: "CursosHome",
+  data() {
+    return {
+      activeSlide: 0,
+      activeSlide2: 0,
+      maxWidth: 1200,
+      cards: [
+        {
+          id: 1,
+          image: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+          subtitle: "Number 1",
+          title: "Whitehaven Beach",
+          location: "Whitsunday Island, Whitsunday Islands",
+        },
+        {
+          id: 2,
+          image: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+          subtitle: "Number 1",
+          title: "Whitehaven Beach",
+          location: "Whitsunday Island, Whitsunday Islands",
+        },
+        {
+          id: 3,
+          image: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+          subtitle: "Number 1",
+          title: "Whitehaven Beach",
+          location: "Whitsunday Island, Whitsunday Islands",
+        },
+       
+       
+      ],
     };
-    </script>
-    
-    <style>
-    
-    </style>
+  },
+};
+</script>
+
+<style scoped>
+.card {
+  margin-top: 10%;
+  border: 4px solid #E5BC6A !important;
+  transition: transform 0.4s;
+}
+
+.card:hover {
+  transform: scale(0.8) translateZ(-5000px);
+}
+
+.elevate-12 {
+  transform:  translateZ(5000px);
+}
+
+.escrita {
+  color: #fff !important;
+}
+
+.footer {
+  border: 4px solid #E5BC6A !important ;
+}
+
+.escritarfooter {
+  color: #fff !important;
+}
+.botao {
+  margin-top: 8%;
+  color: #1b2f4a;
+  font-weight: bold;
+}
+.botao:hover {
+  background-color: #1b2f4a !important;
+  color: #ffeba7;
+}
+.carrosel {
+  height: 100vh;
+}
+.carrosel2{
+  margin-top:-3%;
+}
+
+@media (max-width: 600px) {
+  .carrosel {
+    max-width: 300px;
+  }
+}
+</style>
+
