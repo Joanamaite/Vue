@@ -157,7 +157,6 @@ export default {
 <style scoped>
 .card {
   margin-top: 10%;
-  border: 4px solid #E5BC6A !important;
   transition: transform 0.4s;
 }
 
@@ -173,9 +172,7 @@ export default {
   color: #fff !important;
 }
 
-.footer {
-  border: 4px solid #E5BC6A !important ;
-}
+
 
 .escritarfooter {
   color: #fff !important;
@@ -187,7 +184,7 @@ export default {
 }
 .botao:hover {
   background-color: #1b2f4a !important;
-  color: #ffeba7;
+  color: #fff;
 }
 .carrosel {
   height: 100vh;

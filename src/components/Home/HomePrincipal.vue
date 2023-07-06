@@ -1,18 +1,17 @@
 <template>
   <div>
-    <v-carousel
-      cycle
-      height="400"
-      hide-delimiter-background
-      show-arrows="hover"
-      class="carrosel"
-    >
-      <v-carousel-item src="@/Images/Rectangle 95.png" cover></v-carousel-item>
-      <v-carousel-item src="@/Images/Classe.jpg" cover></v-carousel-item>
-      <v-carousel-item src="@/Images/Rectangle 95.png" cover></v-carousel-item>
-      <v-carousel-item src="@/Images/museum.jpg" cover></v-carousel-item>
-    </v-carousel>
-
+ <div class="imagemFundo col-sm-12">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1 class="escreva">Veja nossos projetos sendo construídos</h1>
+      </div>
+      <div class="col-sm-6">
+        <img src="@/Images/Imagem5.svg" class="imagem">
+      </div>
+    </div>
+  </div>
+</div>
     <v-row class="fade-in-down">
       <v-col v-for="n in 8" :key="n" cols="12" sm="6" md="4" lg="3">
         <v-hover>
@@ -84,13 +83,15 @@ export default {
 
 
 <style scoped>
-.carrosel {
-  margin-top: 5.5%;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inika&display=swap');
+.imagemFundo{
+  background-color: #1B2F4A;
+  width: 100%;
+  height: 75vh;
 
+}
 .card {
   margin-top: 10%;
-  border: 4px solid #E5BC6A !important;
   transition: transform 0.4s;
 }
 
@@ -106,10 +107,6 @@ export default {
   color: #fff !important;
 }
 
-.footer {
-  border: 4px solid #E5BC6A !important ;
-}
-
 .escritarfooter {
   color: #fff !important;
 }
@@ -119,6 +116,18 @@ export default {
   transform: translateY(-50px);
   animation: fade-in-down 1s forwards;
 }
+.imagem{
+  width: 23vw;
+  margin-top:4rem;
+  margin-left: 8rem;
+}
+.escreva{
+  font-family: 'Inika', serif;
+  color: #fff;
+  margin-top: 5rem;
+  font-size: 3.5rem;
+}
+
 
 @keyframes fade-in-down {
   0% {
