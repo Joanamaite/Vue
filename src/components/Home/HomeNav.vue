@@ -9,7 +9,7 @@
   >
   <v-toolbar-title ><img src="@/Images/Logo.png" class="logo  ms-5 mt-3"> </v-toolbar-title>
   <v-spacer/>
-  <v-toolbar-itens>
+<div>
     <v-btn text
     @click="home"
     >
@@ -43,7 +43,7 @@
     >
       ENTRAR
     </v-btn>
-  </v-toolbar-itens>
+  </div>
 
   
   </v-app-bar>

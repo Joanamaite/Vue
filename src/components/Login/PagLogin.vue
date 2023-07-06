@@ -74,13 +74,16 @@
 
 <!--Começo da Lógica-->
 <script>
+ 
 export default {
   data() {
+
     return {
       checked: false,
       isAdmin: false,
       isStudent: false,
       name: '',
+      email:'',
       loginEmail: "",
       loginPassword: "",
       isEmailInvalid: false,
@@ -98,28 +101,46 @@ export default {
     Home(){
     this.$router.push("/")
   },
+ 
   submitForm() {
+
+    //Verificando se o email e válido 
       if (!this.validateEmail(this.loginEmail)) {
         this.isEmailInvalid = true;
-        this.isPasswordInvalid = false;
+        this.isPasswordInvalid = false; //a senha e verdadeira
       } else if (this.loginPassword.length < 6) {
-        this.isEmailInvalid = false;
+        this.isEmailInvalid = false; //o email e verdadeiro 
         this.isPasswordInvalid = true;
       } else {
-        // Email e senha válidos, redirecionar para a página "Home"
+        // Email e senha válidos vai para a página de home 
         this.isEmailInvalid = false;
         this.isPasswordInvalid = false;
         this.$router.push({ path: "/" });
       }
+        //Mostrando o email e senha no console
+        if(this.isEmailInvalid==false && this.isPasswordInvalid==false){
+          //methodo para exibir o json com email e senha no console
+        this.exibirDados();
+        }
+     
+  
+    },
+    //Exibe os dados no console
+    exibirDados(){
+    const dados= {
+    email: this.loginEmail,
+    senha: this.loginPassword
+      };
+      const dadosJSON = JSON.stringify(dados) //transforma em json 
+      console.log(dadosJSON);
     },
     validateEmail(email) {
-      // Expressão regular para validar o formato do email
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      //Validando o formato do email
+      const emailRegex = /^[^\s@]+@educar[^\s@]+\.[^\s@]+$/;
       return emailRegex.test(email);
+      
     }
   },
-  
-  
 };
 </script>
 

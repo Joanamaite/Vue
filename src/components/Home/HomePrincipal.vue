@@ -51,15 +51,6 @@
     </v-row>
 
     <v-footer class="footer text-start mt-15" color="#1B2F4A">
-      <div>
-        <v-btn
-          v-for="icon in icons"
-          :key="icon"
-          class="mx-4"
-          :icon="icon"
-          variant="text"
-        ></v-btn>
-      </div>
 
       <div class="pt-0 escritarfooter">
         Contato:
