@@ -11,14 +11,13 @@
     </v-btn>
 
     <v-carousel
-      class="mt-5"
-      v-model="activeSlide"
-      hide-delimiter-background
-      show-arrows
-      height="500"
-      :max-width="maxWidth"
-      :touch="true"
-      :cycle="false" 
+    :cycle="false" 
+     class="mt-5" 
+     v-model="activeSlide" 
+     hide-delimiter-background 
+     height="500" 
+     :max-width="maxWidth" 
+
     >
       <v-carousel-item
         v-for="n in 9"
@@ -30,7 +29,7 @@
             :key="card.id"
             cols="4"
           >
-            <v-card class="card ml-8" max-width="350" color="#1B2F4A">
+            <v-card class="card ml-8 col-sm-6" max-width="365" color="#1B2F4A">
               <!-- Conteúdo do card -->
               <v-img
                 class="align-end text-white"
@@ -62,7 +61,6 @@
       show-arrows
       height="500"
       :max-width="maxWidth"
-      :touch="true"
       :cycle="false" 
       class="carrosel2"
     >
@@ -76,7 +74,7 @@
             :key="card.id"
             cols="4"
           >
-            <v-card class="card ml-8" max-width="350" color="#1B2F4A">
+            <v-card class="card ml-8 col-sm-6" max-width="365" color="#1B2F4A">
               <!-- Conteúdo do card -->
               <v-img
                 class="align-end text-white"
@@ -102,15 +100,7 @@
       </v-carousel-item>
     </v-carousel>
     <v-footer class="footer text-start mt-15" color="#1B2F4A">
-      <div>
-        <v-btn
-          v-for="icon in icons"
-          :key="icon"
-          class="mx-4"
-          :icon="icon"
-          variant="text"
-        ></v-btn>
-      </div>
+
 
       <div class="pt-0 escritarfooter">
         Contato:
@@ -155,6 +145,9 @@ export default {
 </script>
 
 <style scoped>
+.v-carousel .v-carousel__controls {
+  display: none !important;
+}
 .card {
   margin-top: 10%;
   transition: transform 0.4s;
@@ -171,9 +164,6 @@ export default {
 .escrita {
   color: #fff !important;
 }
-
-
-
 .escritarfooter {
   color: #fff !important;
 }

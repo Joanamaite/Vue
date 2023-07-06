@@ -17,8 +17,8 @@
         <v-hover>
           <template v-slot="{ hover }">
             <v-card
-              class="card ml-8"
-              max-width="350"
+              class="card ml-8 col-sm-7"
+              max-width="370"
               color="#1B2F4A"
               @click="jumpForward"
               :class="{ 'elevate-12': hover }"
