@@ -12,7 +12,7 @@
       </div>
     </div>
   </div>
-      <v-row class="fade-in-down">
+      <v-row class="fade-in-down cards">
         <v-col v-for="n in 8" :key="n" cols="12" sm="6" md="4" lg="3">
           <v-hover>
             <template v-slot="{ hover }">
@@ -118,8 +118,9 @@
     margin-top: 5rem;
     font-size: 3.5rem;
   }
-  
-  
+  .cards{
+  margin-bottom: 45vh;
+}
   @keyframes fade-in-down {
     0% {
       opacity: 0;
@@ -130,4 +131,15 @@
       transform: translateX(0);
     }
   }
+  @media screen and (max-width: 945px) {
+  .cards{
+  margin-bottom:110vh;
+}
+}
+@media screen and (max-width: 636px) {
+  .imagem{
+    display:none;
+  }
+
+}
   </style>

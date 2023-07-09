@@ -29,7 +29,7 @@
             :key="card.id"
             cols="4"
           >
-            <v-card class="card ml-8 col-sm-6" max-width="365" color="#1B2F4A">
+            <v-card class="card ml-8 col-sm-6 col-md-6" max-width="365" color="#1B2F4A">
               <!-- Conteúdo do card -->
               <v-img
                 class="align-end text-white"
@@ -99,13 +99,7 @@
         </v-row>
       </v-carousel-item>
     </v-carousel>
-    <v-footer class="footer text-start mt-15" color="#1B2F4A">
-
-
-      <div class="pt-0 escritarfooter">
-        Contato:
-      </div>
-    </v-footer>
+    
   </div>
 </template>
 
@@ -156,7 +150,11 @@ export default {
 .card:hover {
   transform: scale(0.8) translateZ(-5000px);
 }
+.footer{
+  background-color: #1B2F4A !important;
+  color:#fff !important;
 
+}
 .elevate-12 {
   transform:  translateZ(5000px);
 }
@@ -181,11 +179,17 @@ export default {
 }
 .carrosel2{
   margin-top:-3%;
+  margin-bottom: 40vh;
 }
 
 @media (max-width: 600px) {
   .carrosel {
     max-width: 300px;
+  }
+}
+@media (max-width: 959px) {
+  .carrosel2 {
+    margin-bottom: 110vh;
   }
 }
 </style>

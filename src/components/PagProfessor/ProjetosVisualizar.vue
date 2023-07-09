@@ -54,12 +54,7 @@
             </v-card-actions>
         </v-card>
 
-        <v-footer class="footer text-start mt-15" color="#1B2F4A">
-
-            <div class="pt-0 escritarfooter">
-                Contato:
-            </div>
-        </v-footer>
+  
     </div>
 </template>
   
@@ -104,6 +99,8 @@ export default {
 .card {
     margin-left: 5rem;
     background-color: #1B2F4A;
+    margin-bottom: 50vh;
+
 }
 
 .linhaAzul {
@@ -164,7 +161,25 @@ export default {
     font-size: 3.5vw;
     animation-duration: 5s;
     animation-name: slidein;
-
-
+}
+@media screen and (max-width: 959px) {
+  .card{
+  margin-bottom:110vh;
+}
+}
+@media screen and (max-width: 636px) {
+  .imagem{
+    display:none;
+  }
+  .escreva{
+    font-size:5vw;
+    margin-left: 5rem;
+    width: 40vw;
+  }
+  .escritaProjetos{
+    margin-left: 5rem;
+    font-size:3vw;
+    width: 60vw;
+  }
 }
 </style>

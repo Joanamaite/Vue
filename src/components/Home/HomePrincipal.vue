@@ -12,7 +12,7 @@
     </div>
   </div>
 </div>
-    <v-row class="fade-in-down">
+    <v-row class="fade-in-down cards">
       <v-col v-for="n in 8" :key="n" cols="12" sm="6" md="4" lg="3">
         <v-hover>
           <template v-slot="{ hover }">
@@ -49,19 +49,14 @@
         </v-hover>
       </v-col>
     </v-row>
-
-    <v-footer class="footer text-start mt-15" color="#1B2F4A">
-
-      <div class="pt-0 escritarfooter">
-        Contato:
-      </div>
-    </v-footer>
+  
   </div>
 </template>
 
 <script>
 export default {
   name: "HomePrincipal",
+
   methods: {
     jumpForward() {
     },
@@ -81,11 +76,14 @@ export default {
   height: 75vh;
 
 }
+
 .card {
   margin-top: 10%;
   transition: transform 0.4s;
 }
-
+.cards{
+  margin-bottom: 60vh;
+}
 .card:hover {
   transform: scale(0.9) translateY(-20px);
 }
@@ -116,7 +114,7 @@ export default {
   font-family: 'Inika', serif;
   color: #fff;
   margin-top: 5rem;
-  font-size: 3.5rem;
+  font-size: 5vw;
 }
 
 
@@ -130,4 +128,20 @@ export default {
     transform: translateX(0);
   }
 }
+@media screen and (max-width: 959px) {
+  .cards{
+  margin-bottom:110vh;
+}
+}
+@media screen and (max-width: 636px) {
+  .imagem{
+    display:none;
+  }
+  .escreva{
+    font-size:8vw;
+    margin-left: 2rem;
+    width: 60vw;
+  }
+}
+
 </style>
