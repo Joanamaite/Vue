@@ -6,6 +6,7 @@ import Cursos from "./components/Cursos/CursosHome.vue";
 import Visualizar from "./components/Visualizar/VisualizarTcc.vue";
 import Professor from "./components/PagProfessor/HomeProfessor";
 import ProjetosVisu from "./components/PagProfessor/ProjetosVisualizar.vue";
+import Adicionar from "./components/PagProfessor/AdicionarProjetos.vue";
 
 Vue.use(VueRouter);
 
@@ -15,7 +16,8 @@ const routes = [
   { path: '/Cursos', component: Cursos  },
   { path: '/Visualizar', component: Visualizar },
   { path: '/Professor', component: Professor },
-  { path: '/projetos', component: ProjetosVisu }
+  { path: '/projetos', component: ProjetosVisu },
+  { path: '/Adicionar', component: Adicionar },
 ];
 
 const router = new VueRouter({
