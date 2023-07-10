@@ -9,7 +9,7 @@
         <hr class="linhaAzul">
         <div class="container d-flex align-items-center justify-content-center">
     <div class="row">
-        <div class="col-md-10 col-sm-10  align-self-center mt-5 ms-5 shadow-lg">
+        <div class="col-md-10 col-sm-8  align-self-center mt-5 ms-5 shadow-lg">
             <v-text-field
                 label="Autor"
                 :rules="rules"
@@ -27,7 +27,7 @@
                 </template>
             </v-text-field>
         </div>
-        <div class="col-md-10 col-sm-10  align-self-center mt-5 ms-5 shadow-lg">
+        <div class="col-md-10 col-sm-8  align-self-center mt-5 ms-5 shadow-lg">
             <v-text-field
                 label="Orientador"
                 :rules="rules"
@@ -40,7 +40,7 @@
             >
             </v-text-field>
         </div>
-        <div class="col-md-10 col-sm-10 align-self-center mt-5 ms-5 shadow-lg">
+        <div class="col-md-10 col-sm-8 align-self-center mt-5 ms-5 shadow-lg">
             <v-text-field
                 label="Coorientador"
                 :rules="rules"
@@ -53,7 +53,7 @@
             >
             </v-text-field>
         </div>
-        <div class="col-md-10 col-sm-10 align-self-center mt-5 ms-5 shadow-lg">
+        <div class="col-md-10 col-sm-8 align-self-center mt-5 ms-5 shadow-lg">
             <v-text-field
                 label="Título"
                 :rules="rules"
@@ -66,7 +66,7 @@
             >
             </v-text-field>
         </div>
-        <div class="col-md-10 col-sm-10 align-self-center mt-5 ms-5 shadow-lg">
+        <div class="col-md-10 col-sm-8 align-self-center mt-5 ms-5 shadow-lg">
             <v-text-field
                 label="Tema"
                 :rules="rules"
@@ -79,7 +79,7 @@
             >
             </v-text-field>
         </div>
-        <div class="col-md-10 col-sm-10 align-self-center mt-5 ms-5 shadow-lg  ">
+        <div class="col-md-10 col-sm-8 align-self-center mt-5 ms-5 shadow-lg  ">
             <v-text-field
                 label="Delimitação"
                 :rules="rules"
@@ -93,7 +93,7 @@
            
             </v-text-field>
         </div>
-        <div class="col-md-10 col-sm-10 align-self-center mt-5 ms-5 shadow-lg ">
+        <div class="col-md-10 col-sm-8 align-self-center mt-5 ms-5 shadow-lg ">
             <v-text-field
                 label="Problema"
                 :rules="rules"
@@ -107,7 +107,7 @@
            
             </v-text-field>
         </div>
-        <div class="col-md-10 col-sm-10 align-self-center mt-5 ms-5 shadow-lg  ">
+        <div class="col-md-10 col-sm-8 align-self-center mt-5 ms-5 shadow-lg  ">
             <v-text-field
                 label="Resumo"
                 :rules="rules"
@@ -121,14 +121,14 @@
            
             </v-text-field>
         </div>
-        <div class="col-md-10 col-sm-10 align-self-center mt-5 ms-5 shadow-lg  ">
+        <div class="col-md-10 col-sm-8 align-self-center mt-5 ms-5 shadow-lg  ">
             <v-file-input
-            accept="image/*"
-            label="Anexos"
+            multiple
+            label="Arquivos"
             ></v-file-input>
         </div>
-        <v-col cols="auto" class="d-flex justify-end button">
-        <v-btn size="x-large" class="color col-md-12 ">Adicionar</v-btn>
+        <v-col class="d-flex justify-end button col-sm-2">
+        <v-btn size="x-large" class="color ">Adicionar</v-btn>
       </v-col>
     </div>
 </div>
@@ -175,6 +175,7 @@ export default {
 .color{
     background-color: #1B2F4A !important;
     color:#fff !important;
+    margin-bottom: 50vh;
 }
 .container {
     display: inline-block;
@@ -214,5 +215,11 @@ export default {
         margin-left: 15%;
         width: 100%;
     }
+}
+
+@media screen and (max-width: 959px) {
+  .color{
+  margin-bottom:110vh;
+}
 }
 </style>
