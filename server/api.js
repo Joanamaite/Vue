@@ -9,7 +9,7 @@ app.get('/', async (req, res) => {
 });
 
 app.post('/user/login', userController.login);
-app.post('/user/cadastro', userController.cadastrar);
+app.post('/aluno/cadastro', userController.cadastrar);
 
 app.listen(3000, () => {
   console.log('Servidor iniciado na porta 3000: http://localhost:3000');
