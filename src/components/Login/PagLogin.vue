@@ -36,19 +36,18 @@
                               mínimo 6 caracteres.</p>
                           </div>
                           <div class="d-flex justify-content-between">
-                            <div class="form-check col-sm-6">
+                            <div class="form-check col-sm-4">
                               <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"
                                 v-model="isProfessorChecked">
-                              <label class="form-check-label" for="defaultCheck1">
-                                Professor
-                              </label>
+                              <label class="form-check-label" for="defaultCheck1">Professor</label>
                             </div>
-                            <div class="form-check col-sm-6">
+                            <div class="form-check col-sm-4">
                               <input class="form-check-input" type="checkbox" value="" id="defaultCheck2"
                                 v-model="isAlunoChecked">
-                              <label class="form-check-label input" for="defaultCheck2">
-                                Aluno
-                              </label>
+                              <label class="form-check-label input" for="defaultCheck2">Aluno</label>
+                            </div>
+                            <div class="form-check col-sm-4">
+                              <label class="form-check-label input" @click="Home">Voltar</label>
                             </div>
                           </div>
                           <div>
@@ -97,8 +96,6 @@
   </div>
 </template>
 
-
-<!--Começo da Lógica-->
 <script>
 
 export default {
@@ -120,6 +117,9 @@ export default {
       isProfessorChecked: false,
       isAlunoChecked: false
     };
+
+  
+   
   },
   methods: {
     handleCheck() {
@@ -133,35 +133,48 @@ export default {
         this.$router.push("/Professor")
       }
     },
-
+    
     submitForm() {
+      const axios = require('axios');
+    if (!this.validateEmail(this.loginEmail)) {
+    this.isEmailInvalid = true;
+    this.isPasswordInvalid = false;
+    return;
+  } else if (this.loginPassword.length < 6) {
+    this.isEmailInvalid = false;
+    this.isPasswordInvalid = true;
+    return;
+  }
 
-      //Verificando se o email e válido 
-      if (!this.validateEmail(this.loginEmail)) {
-        this.isEmailInvalid = true;
-        this.isPasswordInvalid = false; //a senha e verdadeira
-      } else if (this.loginPassword.length < 6) {
-        this.isEmailInvalid = false; //o email e verdadeiro 
-        this.isPasswordInvalid = true;
-      } else {
-        // Email e senha válidos vai para a página de home 
-        this.isEmailInvalid = false;
-        this.isPasswordInvalid = false;
-        this.$router.push({ path: "/" });
-      }
-      //Mostrando o email e senha no console
-      if (this.isEmailInvalid == false && this.isPasswordInvalid == false) {
-        //methodo para exibir o json com email e senha no console
-        this.exibirDados();
-      }
+  const userType = this.isProfessorChecked ? 'professor' : this.isAlunoChecked ? 'aluno' : 'usuario';
 
-      if (this.isProfessorChecked) {
+  // Dados do formulário
+  const formData = {
+    email: this.loginEmail,
+    senha: this.loginPassword,
+    userType: userType
+  };
+ 
+    // Enviar solicitação para o backend
+    axios.post('http://localhost:3000/user/login', formData)
+    .then((response) => {
+      console.log(response.data); // Resposta do servidor
+      // Redirecionar com base no tipo de usuário
+      if (userType === 'professor') {
         this.$router.push('/Professor');
+      } else if (userType === 'aluno') {
+        this.$router.push('/Aluno');
+      } else {
+        // Tratar outros tipos de usuário aqui
       }
+    })
+    .catch((error) => {
+      console.error(error);
+      // Tratar erros de solicitação aqui
+    });
+},
 
-    },
-    //Exibe os dados no console
-    exibirDados() {
+  exibirDados() {
       const dados = {
         email: this.loginEmail,
         senha: this.loginPassword
@@ -175,8 +188,12 @@ export default {
       return emailRegex.test(email);
 
     }
-  },
-};
+
+  }
+
+
+  };
+  
 </script>
 
 <!--Começo da Estilização-->
@@ -434,6 +451,9 @@ h6 span {
   opacity: 0;
   -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
+}
+.input{
+  cursor: pointer;
 }
 
 .form-group input:focus:-moz-placeholder {

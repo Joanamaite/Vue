@@ -21,34 +21,33 @@
             </svg>
           </button>
           <v-btn 
-          v-if="$route.path !== '/Professor' &&  $route.path !== '/projetos'" 
-            @click="home" 
+          v-if="$route.path !== '/Professor' && $route.path !== '/projetos'  && $route.path !== '/Adicionar'  && $route.path !== '/exemplos' && $route.path !== '/Aluno'"
+          @click=" home()"
           text 
-          class="itens_header col-md-3 col-sm-2"
+          class="itens_header col-md-2 col-sm-2"
           
           >INÍCIO</v-btn> <!--botão tela de login-->
 
           <v-btn 
-          v-if="$route.path == '/Professor'" 
-          @click="professor" 
+          v-if="$route.path !== '/' && $route.path !== '/Cursos' && $route.path !== '/Aluno'  "
+          @click=" professor() "
           text 
-          class="itens_header col-md-3"
+          class="itens_header col-md-2 col-sm-2"
           
           >INÍCIO</v-btn> <!--botão tela de professor-->
-
           <v-btn 
-          v-if="$route.path == '/projetos'" 
-            @click="professor" 
+          v-if="$route.path !== '/' && $route.path !== '/Cursos' &&  $route.path !== '/Professor' &&  $route.path !== '/projetos' &&  $route.path !== '/Adicionar' &&  $route.path !== '/exemplos' "
+          @click=" aluno() "
           text 
-          class="itens_header col-md-3 col-sm-3"
+          class="itens_header col-md-2 col-sm-2"
           
-          >INÍCIO</v-btn> <!--botão tela de professor-->
+          >INÍCIO</v-btn> <!--botão tela de aluno-->
           
           <v-menu offset-y>
             <template v-slot:activator="{ on }">
-              <v-btn text v-on="on">CURSOS</v-btn>
+              <v-btn class="itens_header col-md-2 col-sm-2" text v-on="on">CURSOS</v-btn>
             </template>
-            <v-list class="lista itens_header ">
+            <v-list class="lista">
               <v-list-item @click="action1">Informática</v-list-item>
               <v-list-item @click="action2">Eletrônica</v-list-item>
               <v-list-item @click="action3">Mecânica</v-list-item>
@@ -62,17 +61,17 @@
     <v-btn 
     text
     @click="escola"
-    class="itens_header col-md-3 col-sm-3" 
-    v-if="$route.path !== '/Professor'&& $route.path !== '/projetos'"
+    class="itens_header col-md-2 col-sm-3" 
+    v-if="$route.path !== '/Professor' && $route.path !== '/projetos' && $route.path !== '/Adicionar' && $route.path !== '/exemplos' && $route.path !== '/Aluno' "
     >
       ESCOLA
     </v-btn>
 
     <v-btn
     text
-    @click="exemplos"
-    class="itens_header col-md-3" 
-    v-if="$route.path == '/Professor' || $route.path == '/projetos'"
+    class="itens_header col-md-2" 
+    v-if="$route.path !== '/' &&  $route.path !== '/Cursos'"
+    @click="exemplos()"
     >
     EXEMPLOS
     </v-btn> <!--botão tela de professor-->
@@ -80,18 +79,16 @@
     <v-btn
     text
     @click="projetos"
-    class="itens_header col-md-3" 
-    v-if="$route.path == '/Professor' || $route.path == '/projetos'"
+    class="itens_header col-md-2"
+    v-if="$route.path !== '/' && $route.path !== '/Cursos' "
     >
     PROJETOS
     </v-btn> <!--botão tela de professor-->
-
-
     <v-btn 
     text
     @click="login"
-    class="itens_header col-md-3 col-sm-3" 
-    v-if="$route.path !== '/Professor' &&  $route.path !== '/projetos'"
+    class="itens_header col-md-2 col-sm-3" 
+    v-if="$route.path !== '/Professor' && $route.path !== '/projetos'  && $route.path !== '/Adicionar' && $route.path !== '/exemplos' && $route.path !== '/Aluno'"
     >
       ENTRAR
     </v-btn> 
@@ -159,7 +156,13 @@ export default {
       this.$router.push("/exemplos"); //Não existe ainda
     },
     projetos(){
-      this.$router.push("/projetos"); //Não existe ainda
+      this.$router.push("/projetos"); //já existe 
+    },
+    professor(){
+      this.$router.push("/Professor"); //já existe 
+    },
+    aluno(){
+      this.$router.push("/Aluno"); //já existe 
     },
     action1() {
       this.$router.push("/Cursos");
@@ -234,7 +237,7 @@ export default {
     z-index: 1;
   }
 .logo_header {
-  height: 7vh;
+  height: 8.5vh;
   margin-bottom: 1rem;
 }
 
@@ -314,6 +317,12 @@ body {
   cursor: pointer;
   display: none;
 }
+.itens_header{
+   width: 8vw;
+  }
+  .lista{
+    width: 10vw;
+  }
 
 @media screen and (max-width: 675px) {
   .navigation_header {
