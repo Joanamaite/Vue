@@ -11,14 +11,13 @@
     </v-btn>
 
     <v-carousel
-      class="mt-5"
-      v-model="activeSlide"
-      hide-delimiter-background
-      show-arrows
-      height="500"
-      :max-width="maxWidth"
-      :touch="true"
-      :cycle="false" 
+    :cycle="false" 
+     class="mt-5" 
+     v-model="activeSlide" 
+     hide-delimiter-background 
+     height="500" 
+     :max-width="maxWidth" 
+
     >
       <v-carousel-item
         v-for="n in 9"
@@ -30,7 +29,7 @@
             :key="card.id"
             cols="4"
           >
-            <v-card class="card ml-8" max-width="350" color="#1B2F4A">
+            <v-card class="card ml-8 col-sm-6 col-md-6" max-width="365" color="#1B2F4A">
               <!-- Conteúdo do card -->
               <v-img
                 class="align-end text-white"
@@ -62,7 +61,6 @@
       show-arrows
       height="500"
       :max-width="maxWidth"
-      :touch="true"
       :cycle="false" 
       class="carrosel2"
     >
@@ -76,7 +74,7 @@
             :key="card.id"
             cols="4"
           >
-            <v-card class="card ml-8" max-width="350" color="#1B2F4A">
+            <v-card class="card ml-8 col-sm-6" max-width="365" color="#1B2F4A">
               <!-- Conteúdo do card -->
               <v-img
                 class="align-end text-white"
@@ -101,21 +99,7 @@
         </v-row>
       </v-carousel-item>
     </v-carousel>
-    <v-footer class="footer text-start mt-15" color="#1B2F4A">
-      <div>
-        <v-btn
-          v-for="icon in icons"
-          :key="icon"
-          class="mx-4"
-          :icon="icon"
-          variant="text"
-        ></v-btn>
-      </div>
-
-      <div class="pt-0 escritarfooter">
-        Contato:
-      </div>
-    </v-footer>
+    
   </div>
 </template>
 
@@ -155,16 +139,22 @@ export default {
 </script>
 
 <style scoped>
+.v-carousel .v-carousel__controls {
+  display: none !important;
+}
 .card {
   margin-top: 10%;
-  border: 4px solid #E5BC6A !important;
   transition: transform 0.4s;
 }
 
 .card:hover {
   transform: scale(0.8) translateZ(-5000px);
 }
+.footer{
+  background-color: #1B2F4A !important;
+  color:#fff !important;
 
+}
 .elevate-12 {
   transform:  translateZ(5000px);
 }
@@ -172,11 +162,6 @@ export default {
 .escrita {
   color: #fff !important;
 }
-
-.footer {
-  border: 4px solid #E5BC6A !important ;
-}
-
 .escritarfooter {
   color: #fff !important;
 }
@@ -187,18 +172,24 @@ export default {
 }
 .botao:hover {
   background-color: #1b2f4a !important;
-  color: #ffeba7;
+  color: #fff;
 }
 .carrosel {
   height: 100vh;
 }
 .carrosel2{
   margin-top:-3%;
+  margin-bottom: 40vh;
 }
 
 @media (max-width: 600px) {
   .carrosel {
     max-width: 300px;
+  }
+}
+@media (max-width: 959px) {
+  .carrosel2 {
+    margin-bottom: 110vh;
   }
 }
 </style>

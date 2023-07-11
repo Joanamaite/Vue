@@ -1,25 +1,24 @@
 <template>
   <div>
-    <v-carousel
-      cycle
-      height="400"
-      hide-delimiter-background
-      show-arrows="hover"
-      class="carrosel"
-    >
-      <v-carousel-item src="@/Images/Rectangle 95.png" cover></v-carousel-item>
-      <v-carousel-item src="@/Images/Classe.jpg" cover></v-carousel-item>
-      <v-carousel-item src="@/Images/Rectangle 95.png" cover></v-carousel-item>
-      <v-carousel-item src="@/Images/museum.jpg" cover></v-carousel-item>
-    </v-carousel>
-
-    <v-row class="fade-in-down">
+ <div class="imagemFundo col-sm-12">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1 class="escreva">Veja nossos projetos sendo construídos</h1>
+      </div>
+      <div class="col-sm-6">
+        <img src="@/Images/Imagem5.svg" class="imagem">
+      </div>
+    </div>
+  </div>
+</div>
+    <v-row class="fade-in-down cards">
       <v-col v-for="n in 8" :key="n" cols="12" sm="6" md="4" lg="3">
         <v-hover>
           <template v-slot="{ hover }">
             <v-card
-              class="card ml-8"
-              max-width="350"
+              class="card ml-8 col-sm-7"
+              max-width="370"
               color="#1B2F4A"
               @click="jumpForward"
               :class="{ 'elevate-12': hover }"
@@ -50,28 +49,14 @@
         </v-hover>
       </v-col>
     </v-row>
-
-    <v-footer class="footer text-start mt-15" color="#1B2F4A">
-      <div>
-        <v-btn
-          v-for="icon in icons"
-          :key="icon"
-          class="mx-4"
-          :icon="icon"
-          variant="text"
-        ></v-btn>
-      </div>
-
-      <div class="pt-0 escritarfooter">
-        Contato:
-      </div>
-    </v-footer>
+  
   </div>
 </template>
 
 <script>
 export default {
   name: "HomePrincipal",
+
   methods: {
     jumpForward() {
     },
@@ -84,16 +69,21 @@ export default {
 
 
 <style scoped>
-.carrosel {
-  margin-top: 5.5%;
+@import url('https://fonts.googleapis.com/css2?family=Inika&display=swap');
+.imagemFundo{
+  background-color: #1B2F4A;
+  width: 100%;
+  height: 75vh;
+
 }
 
 .card {
   margin-top: 10%;
-  border: 4px solid #E5BC6A !important;
   transition: transform 0.4s;
 }
-
+.cards{
+  margin-bottom: 60vh;
+}
 .card:hover {
   transform: scale(0.9) translateY(-20px);
 }
@@ -106,10 +96,6 @@ export default {
   color: #fff !important;
 }
 
-.footer {
-  border: 4px solid #E5BC6A !important ;
-}
-
 .escritarfooter {
   color: #fff !important;
 }
@@ -119,6 +105,18 @@ export default {
   transform: translateY(-50px);
   animation: fade-in-down 1s forwards;
 }
+.imagem{
+  width: 23vw;
+  margin-top:4rem;
+  margin-left: 8rem;
+}
+.escreva{
+  font-family: 'Inika', serif;
+  color: #fff;
+  margin-top: 5rem;
+  font-size: 5vw;
+}
+
 
 @keyframes fade-in-down {
   0% {
@@ -130,4 +128,20 @@ export default {
     transform: translateX(0);
   }
 }
+@media screen and (max-width: 959px) {
+  .cards{
+  margin-bottom:110vh;
+}
+}
+@media screen and (max-width: 636px) {
+  .imagem{
+    display:none;
+  }
+  .escreva{
+    font-size:8vw;
+    margin-left: 2rem;
+    width: 60vw;
+  }
+}
+
 </style>
