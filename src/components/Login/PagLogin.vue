@@ -100,7 +100,6 @@
 
 export default {
   data() {
-
     return {
       checked: false,
       isAdmin: false,
@@ -117,36 +116,40 @@ export default {
       isProfessorChecked: false,
       isAlunoChecked: false
     };
-
-  
-   
   },
   methods: {
+    validateEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    },
     handleCheck() {
       this.checked = !this.checked;
     },
     Home() {
-      this.$router.push("/")
+      this.$router.push('/');
     },
     professor(event) {
       if (event.target.checked) {
-        this.$router.push("/Professor")
+        this.$router.push('/Professor');
       }
     },
-    
     submitForm() {
-      const axios = require('axios');
-    if (!this.validateEmail(this.loginEmail)) {
+  const axios = require('axios');
+  if (!this.validateEmail(this.loginEmail)) {
     this.isEmailInvalid = true;
     this.isPasswordInvalid = false;
     return;
-  } else if (this.loginPassword.length < 6) {
-    this.isEmailInvalid = false;
-    this.isPasswordInvalid = true;
-    return;
   }
 
-  const userType = this.isProfessorChecked ? 'professor' : this.isAlunoChecked ? 'aluno' : 'usuario';
+  let userType; // Declaração da variável userType
+
+  if (this.isProfessorChecked) { // Verifica se a opção isProfessorChecked é verdadeira
+    userType = 'professor'; // Atribui o valor 'professor' à variável userType
+  } else if (this.isAlunoChecked) { 
+    userType = 'aluno'; // Atribui o valor 'aluno' à variável userType
+  } else { 
+    userType = 'usuario'; // Atribui o valor 'usuario' à variável userType
+  }
 
   // Dados do formulário
   const formData = {
@@ -154,9 +157,9 @@ export default {
     senha: this.loginPassword,
     userType: userType
   };
- 
-    // Enviar solicitação para o backend
-    axios.post('http://localhost:3000/user/login', formData)
+
+  // Enviar solicitação para o backend
+  axios.post('http://localhost:3000/login',formData)
     .then((response) => {
       console.log(response.data); // Resposta do servidor
       // Redirecionar com base no tipo de usuário
@@ -173,22 +176,16 @@ export default {
       // Tratar erros de solicitação aqui
     });
 },
-
-  exibirDados() {
+    exibirDados() {
       const dados = {
         email: this.loginEmail,
         senha: this.loginPassword
       };
-      const dadosJSON = JSON.stringify(dados) //transforma em json 
+      const dadosJSON = JSON.stringify(dados);
       console.log(dadosJSON);
-    },
-    validateEmail(email) {
-      //Validando o formato do email
-      const emailRegex = /^[^\s@]+@educar[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
     }
   }
-  };
+};
 </script>
 
 <!--Começo da Estilização-->

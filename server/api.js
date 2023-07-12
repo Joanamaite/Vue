@@ -1,18 +1,27 @@
 const express = require('express');
-const app = express();
-const userController = require('./controller/userController');
 const cors = require('cors');
-app.use(cors())
-app.use(express.json()); // Recebe as informações no formato JSON
+const app = express();
 
-app.get('/', async (req, res) => {
-  res.send('Página inicial');
-});
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.post('/user/login', userController.login);
+const {
+    BASE_URL,
+    DB_HOST,
+    DB_USER,
+    DB_USER_PASS,
+    DB_DATEBASE
+} = require('./config');
 
-app.post('/aluno/cadastro', userController.cadastrar);
+const router = require('./router/route');
+app.use(router);
 
-app.listen(3000, () => {
-  console.log('Servidor iniciado na porta 3000: http://localhost:3000');
-});
+const userRoute = require("./router/user");
+app.use('/user', userRoute);
+
+const login = require('./router/user');
+app.use('/login', login);
+
+
+module.exports = app;

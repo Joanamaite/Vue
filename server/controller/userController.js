@@ -1,58 +1,29 @@
-const { User, Login } = require('../models/User');
+const userModel = require("../model/userModel");
 
-const userController = {
-  login: async (req, res) => {
-    const { email, senha } = req.body;
-    try {
-      const pessoa = await User.findOne({ where: { email } });
-
-      if (!pessoa) {
-        return res.status(400).json({ erro: true, mensagem: 'Usuário não encontrado' });
-      }
-      const usuario = await Login.findOne({ where: { pessoa_id_pessoa: pessoa.id_pessoa } });
-
-      if (usuario.senha !== senha) {
-        return res.status(400).json({ erro: true, mensagem: 'Senha incorreta' });
-      }
-
-      console.log('Usuário logado com sucesso:', pessoa.toJSON());
-
-      return res.status(200).json({ erro: false, mensagem: 'Usuário logado com sucesso' });
-    } catch (error) {
-      console.error('Erro ao logar o usuário:', error);
-      return res.status(400).json({ erro: true, mensagem: 'Erro interno do servidor' });
+exports.get = async (headers) => {
+  let auth;
+  if (headers['perfil'] !== "admin") {
+    return { status: "null", msg: "Operação não permitida", auth };
+  }
+  auth = await userModel.verifyJWT(headers['x-access-token'], headers['perfil']);
+  let users;
+  if (auth.idUser) {
+    if (headers.iduser == auth.idUser) {
+      users = await userModel.get();
+      return users;
+    } else {
+      return { status: "null", auth };
     }
-  },
-
-  cadastrar: async (req, res) => {
-    console.log(req.body); // Verifica o valor de req.body
-    const { nome, email } = req.body;
-    try {
-      // Verificação do usuário já existente
-      const userExists = await User.findOne({ where: { email } });
-      if (userExists) {
-        return res.status(400).json({ erro: true, mensagem: 'Usuário já cadastrado' });
-      }
-
-      // Criação do novo usuário
-      const pessoa = await User.create({
-        nome,
-        email,
-      });
-      console.log('Usuário cadastrado com sucesso:', pessoa.toJSON());
-
-      return res.status(200).json({
-        erro: false,
-        mensagem: 'Usuário cadastrado com sucesso'
-      });
-    } catch (error) {
-      console.error('Erro ao cadastrar usuário:', error);
-      return res.status(400).json({
-        erro: true,
-        mensagem: 'Erro: usuário não cadastrado'
-      });
-    }
+  } else {
+    return { status: "null", auth };
   }
 };
 
-module.exports = userController;
+exports.login = async (body) => {
+  const result = await userModel.login(body);
+  if (result.auth) {
+    return { auth: true, token: result.token, user: result.user };
+  } else {
+    return { auth: false, message: 'Credenciais inválidas' };
+  }
+};
