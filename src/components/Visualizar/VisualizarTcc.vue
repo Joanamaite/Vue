@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1 class="titulo text-center">
+  <div class="margin">
+    <h1 class="titulo text-center ">
       Ferramenta para Projeto de Pesquisa
     </h1>
     <div class="container">
@@ -89,7 +89,7 @@
 
 <v-btn @click="openDialog(6)" class="etapasbotao mb-3">6° ETAPA</v-btn>
 
-<div v-if="dialogVisible[6]" class="dialog-overlay">
+<div v-if="dialogVisible[6]" class="dialog-overlay1">
 <v-card-text class="dialog">
   <div class="dialogo">
     <h1 class="escritadentro text-center">6° ETAPA</h1>
@@ -137,7 +137,7 @@ closeDialog(step) {
 }
 .titulo {
   font-family: 'Fondamento', cursive;
-  margin-top: 5%;
+  margin-top: 7%;
 }
 
 .estiloEscrita {
@@ -145,7 +145,9 @@ closeDialog(step) {
   width: 50vw;
   flex: 1;
 }
-
+.margin{
+  margin-bottom: 30rem;
+}
 .container {
   display: flex;
 }
@@ -179,6 +181,18 @@ padding: 20px;
 border-radius: 5px;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+.dialog-overlay1 {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 80rem;
+}
 
 button {
 margin-top: 10px;
@@ -186,7 +200,7 @@ margin-top: 10px;
 .dialogo{
 width: 100%;
 height: 5vh;
-background-color:#E5BC6A !important;
+background-color:#fff !important;
 border-radius: 18px;
 }
 .escritadentro{
@@ -196,7 +210,7 @@ text-align: center;
 }
 .etapasbotao{
 background-color: #1B2F4A  !important;
-color:#E5BC6A  !important;
+color:#fff !important;
 margin-left: 4%;
 }
 .escritapequena{

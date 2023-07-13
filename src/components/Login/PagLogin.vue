@@ -17,7 +17,7 @@
               <div :class="['card-3d-wrap mx-auto', { active: checked }]">
                 <div class="card-3d-wrapper">
                   <div class="card-front">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"  fill="currentColor"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                       class="bi bi-chevron-left justify-content-start" viewBox="0 0 16 16" @click="Home">
                       <path fill-rule="evenodd"
                         d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
@@ -42,51 +42,49 @@
                               mínimo 6 caracteres.</p>
                           </div>
                           <div class="d-flex justify-content-between">
-                            <div class="form-check col-sm-6">
-                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"
-                                v-model="isProfessorChecked">
-                              <label class="form-check-label" for="defaultCheck1">Professor</label>
+                            <div class="form-check col-sm-6 ms-5">
+                              <v-radio-group v-model="selectedOption">
+                                <v-radio value="professor" label="Professor"></v-radio>
+                              </v-radio-group>
                             </div>
                             <div class="form-check col-sm-6">
-                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck2"
-                                v-model="isAlunoChecked">
-                              <label class="form-check-label input" for="defaultCheck2">Aluno</label>
+                              <v-radio-group v-model="selectedOption">
+                                <v-radio value="aluno" label="Aluno"></v-radio>
+                              </v-radio-group>
                             </div>
                           </div>
-                          <div>
-                            <button @click="submitForm" class="btn mt-4">Enviar</button>
-                          </div>
+                          <button @click="submitForm" class="btn mt-4">Enviar</button>
                         </div>
-                        <p class="mb-0 mt-4 text-center"><a href="" class="link">Esqueceu sua senha?</a></p>
                       </div>
+                      <p class="mb-0 mt-4 text-center"><a href="" class="link">Esqueceu sua senha?</a></p>
                     </div>
                   </div>
-                  <div class="card-back">
-                    <div class="center-wrap">
-                      <div class="section text-center">
-                        <h4 class="mb-4 pb-3">Cadastrar</h4>
-                        <div class="form-group" style="margin-top: 20px;">
-                          <input type="text" name="name" class="form-style" placeholder="Nome" id="name"
-                            autocomplete="off" v-model="name" />
-                          <i class="input-icon uil uil-user"></i>
-                        </div>
-                        <div class="form-group" style="margin-top: 20px;">
-                          <input type="text" name="email" class="form-style" placeholder="E-mail" id="email"
-                            autocomplete="off" v-model="email" />
-                          <i class="input-icon uil uil-envelope"></i>
-                        </div>
-                        <div class="form-group" style="margin-top: 20px;">
-                          <input type="password" name="password" class="form-style" placeholder="Senha" id="password"
-                            autocomplete="off" v-model="password" />
-                          <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <div class="form-group" style="margin-top: 20px;">
-                          <input type="password" name="confirmPassword" class="form-style" placeholder="Confirmar Senha"
-                            id="confirmPassword" autocomplete="off" v-model="confirmPassword" />
-                          <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <a href="#" class="btn mt-4">Enviar</a>
+                </div>
+                <div class="card-back">
+                  <div class="center-wrap">
+                    <div class="section text-center">
+                      <h4 class="mb-4 pb-3">Cadastrar</h4>
+                      <div class="form-group" style="margin-top: 20px;">
+                        <input type="text" name="name" class="form-style" placeholder="Nome" id="name" autocomplete="off"
+                          v-model="name" />
+                        <i class="input-icon uil uil-user"></i>
                       </div>
+                      <div class="form-group" style="margin-top: 20px;">
+                        <input type="text" name="email" class="form-style" placeholder="E-mail" id="email"
+                          autocomplete="off" v-model="email" />
+                        <i class="input-icon uil uil-envelope"></i>
+                      </div>
+                      <div class="form-group" style="margin-top: 20px;">
+                        <input type="password" name="password" class="form-style" placeholder="Senha" id="password"
+                          autocomplete="off" v-model="password" />
+                        <i class="input-icon uil uil-lock-alt"></i>
+                      </div>
+                      <div class="form-group" style="margin-top: 20px;">
+                        <input type="password" name="confirmPassword" class="form-style" placeholder="Confirmar Senha"
+                          id="confirmPassword" autocomplete="off" v-model="confirmPassword" />
+                        <i class="input-icon uil uil-lock-alt"></i>
+                      </div>
+                      <a href="#" class="btn mt-4">Enviar</a>
                     </div>
                   </div>
                 </div>
@@ -117,8 +115,18 @@ export default {
       confirmPassword: '',
       birthdate: '',
       isProfessorChecked: false,
-      isAlunoChecked: false
+      isAlunoChecked: false,
+      selectedOption: null
     };
+  },
+  watch: {
+    selectedOption(newVal) {
+      if (newVal === "professor") {
+        this.selectedOption = "professor";
+      } else if (newVal === "aluno") {
+        this.selectedOption = "aluno";
+      }
+    }
   },
   methods: {
     validateEmail(email) {
@@ -195,11 +203,12 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
-.bi{
+.bi {
   margin-left: -25rem !important;
   margin-top: 1rem;
-  cursor:pointer;
+  cursor: pointer;
 }
+
 .body {
   font-family: 'Poppins', sans-serif;
   background-color: #1B2F4A;
@@ -524,4 +533,5 @@ h6 span {
   height: 26px;
   width: auto;
   display: block;
-}</style>
+}
+</style>

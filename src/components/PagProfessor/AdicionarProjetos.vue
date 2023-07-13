@@ -152,7 +152,7 @@ export default {
             this.$router.push("/Adicionar");
         },
         projetos(){
-            this.$router.push("/ProjetoVisu")
+            this.$router.push("/Visualizar");
         }
     },
 

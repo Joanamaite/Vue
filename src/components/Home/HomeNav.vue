@@ -21,7 +21,7 @@
             </svg>
           </button>
           <v-btn 
-          v-if="$route.path !== '/Professor' && $route.path !== '/projetos'  && $route.path !== '/Adicionar'  && $route.path !== '/exemplos' && $route.path !== '/Aluno'"
+          v-if="$route.path !== '/Professor' && $route.path !== '/projetos'  && $route.path !== '/Adicionar'  && $route.path !== '/exemplos' && $route.path !== '/Aluno' && $route.path !== '/Visualizar'"
           @click=" home()"
           text 
           class="itens_header col-md-2 col-sm-2"
@@ -36,7 +36,7 @@
           
           >INÍCIO</v-btn> <!--botão tela de professor-->
           <v-btn 
-          v-if="$route.path !== '/' && $route.path !== '/Cursos' &&  $route.path !== '/Professor' &&  $route.path !== '/projetos' &&  $route.path !== '/Adicionar' &&  $route.path !== '/exemplos' "
+          v-if="$route.path !== '/' && $route.path !== '/Cursos' &&  $route.path !== '/Professor' &&  $route.path !== '/projetos' &&  $route.path !== '/Adicionar' &&  $route.path !== '/exemplos' && $route.path !== '/Visualizar' "
           @click=" aluno() "
           text 
           class="itens_header col-md-2 col-sm-2"
@@ -62,7 +62,7 @@
     text
     @click="escola"
     class="itens_header col-md-2 col-sm-3" 
-    v-if="$route.path !== '/Professor' && $route.path !== '/projetos' && $route.path !== '/Adicionar' && $route.path !== '/exemplos' && $route.path !== '/Aluno' "
+    v-if="$route.path !== '/Professor' && $route.path !== '/projetos' && $route.path !== '/Adicionar' && $route.path !== '/exemplos' && $route.path !== '/Aluno' && $route.path !== '/Visualizar' "
     >
       ESCOLA
     </v-btn>
@@ -88,13 +88,62 @@
     text
     @click="login"
     class="itens_header col-md-2 col-sm-3" 
-    v-if="$route.path !== '/Professor' && $route.path !== '/projetos'  && $route.path !== '/Adicionar' && $route.path !== '/exemplos' && $route.path !== '/Aluno'"
+    v-if="$route.path !== '/Professor' && $route.path !== '/projetos'  && $route.path !== '/Adicionar' && $route.path !== '/exemplos' && $route.path !== '/Aluno' && $route.path !== '/Visualizar'"
     >
       ENTRAR
     </v-btn> 
+    <v-container class="fill-height">
+      <v-row
+        align="center"
+        justify="center"
+      >
+        <v-img src="https://randomuser.me/api/portraits/men/78.jpg" class="imagem" @click.stop="drawer = !drawer"  v-if="$route.path !== '/' && $route.path !== '/Cursos'  &&  $route.path !== '/projetos' &&  $route.path !== '/Adicionar' &&  $route.path !== '/exemplos' "></v-img>
+      </v-row>
+    </v-container>
+
+    <v-navigation-drawer
+      v-model="drawer"
+      height="900"
+      absolute
+      right
+      temporary
+      class="perfil"
+     
+    >
+      <v-list-item>
+        <v-list-item-avatar>
+          <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+        </v-list-item-avatar>
+
+        <v-list-item-content>
+          <v-list-item-title >John Leider</v-list-item-title>
+          <p class="email">JohnLeider2@educar.rs.gov.br</p>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list dense>
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
   </div> 
         </div>
+   
       </div>
+
     </v-app-bar>
     
     <v-footer
@@ -138,7 +187,17 @@
 
 <script>
 
+
 export default {
+  data () {
+      return {
+        drawer: null,
+        items: [
+          { title: 'Home', icon: 'mdi-view-dashboard' },
+          { title: 'About', icon: 'mdi-forum' },
+        ],
+      }
+    },
   methods: {
     cursos() {
       this.$router.push("/Cursos"); //Já existe
@@ -221,6 +280,25 @@ export default {
   background-color: #ffff;
 }
 
+.email{
+  font-size: 1vw;
+  margin-top: 0.5rem;
+}
+.imagem{
+  width: 3vw;
+  border-radius: 20px;
+  cursor: pointer;
+  justify-content: end;
+}
+.perfil{
+  background-color: #1B2F4A !important;
+}
+.color{
+  background-color: transparent !important;
+  width: 8vw;
+  border: none !important;
+  box-shadow: none !important;
+}
 .escritafooter{
   margin-left: 3%;
 }
@@ -318,7 +396,7 @@ body {
   display: none;
 }
 .itens_header{
-   width: 8vw;
+   width: 4vw;
   }
   .lista{
     width: 10vw;
@@ -370,6 +448,9 @@ body {
 
   }
   .img_logo_header{
+    display: none;
+  }
+  .imagem{
     display: none;
   }
 }

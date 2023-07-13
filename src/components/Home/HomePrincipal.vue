@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-6">
-        <h1 class="escreva">Veja nossos projetos sendo construídos</h1>
+        <h1 class="escreva" :aspect-ratio="16/9" >Veja nossos projetos sendo construídos</h1>
       </div>
       <div class="col-sm-6">
         <img src="@/Images/Imagem5.svg" class="imagem">

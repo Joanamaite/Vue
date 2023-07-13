@@ -116,7 +116,7 @@
     font-family: 'Inika', serif;
     color: #fff;
     margin-top: 5rem;
-    font-size: 3.5rem;
+    font-size: 5vw;
   }
   .cards{
   margin-bottom: 45vh;
@@ -139,6 +139,11 @@
 @media screen and (max-width: 636px) {
   .imagem{
     display:none;
+  }
+  .escreva{
+    font-size: 8vw;
+    width: 50vw;
+    text-align: center;
   }
 
 }
