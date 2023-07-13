@@ -13,9 +13,15 @@
               <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" v-model="checked"
                 style="display: none;" />
               <label for="reg-log"></label>
+
               <div :class="['card-3d-wrap mx-auto', { active: checked }]">
                 <div class="card-3d-wrapper">
                   <div class="card-front">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"  fill="currentColor"
+                      class="bi bi-chevron-left justify-content-start" viewBox="0 0 16 16" @click="Home">
+                      <path fill-rule="evenodd"
+                        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                    </svg>
                     <div class="center-wrap">
                       <div class="section text-center">
                         <h4 class="mb-4 pb-3">Logar</h4>
@@ -36,18 +42,15 @@
                               mínimo 6 caracteres.</p>
                           </div>
                           <div class="d-flex justify-content-between">
-                            <div class="form-check col-sm-4">
+                            <div class="form-check col-sm-6">
                               <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"
                                 v-model="isProfessorChecked">
                               <label class="form-check-label" for="defaultCheck1">Professor</label>
                             </div>
-                            <div class="form-check col-sm-4">
+                            <div class="form-check col-sm-6">
                               <input class="form-check-input" type="checkbox" value="" id="defaultCheck2"
                                 v-model="isAlunoChecked">
                               <label class="form-check-label input" for="defaultCheck2">Aluno</label>
-                            </div>
-                            <div class="form-check col-sm-4">
-                              <label class="form-check-label input" @click="Home">Voltar</label>
                             </div>
                           </div>
                           <div>
@@ -134,48 +137,48 @@ export default {
       }
     },
     submitForm() {
-  const axios = require('axios');
-  if (!this.validateEmail(this.loginEmail)) {
-    this.isEmailInvalid = true;
-    this.isPasswordInvalid = false;
-    return;
-  }
-
-  let userType; // Declaração da variável userType
-
-  if (this.isProfessorChecked) { // Verifica se a opção isProfessorChecked é verdadeira
-    userType = 'professor'; // Atribui o valor 'professor' à variável userType
-  } else if (this.isAlunoChecked) { 
-    userType = 'aluno'; // Atribui o valor 'aluno' à variável userType
-  } else { 
-    userType = 'usuario'; // Atribui o valor 'usuario' à variável userType
-  }
-
-  // Dados do formulário
-  const formData = {
-    email: this.loginEmail,
-    senha: this.loginPassword,
-    userType: userType
-  };
-
-  // Enviar solicitação para o backend
-  axios.post('http://localhost:3000/login',formData)
-    .then((response) => {
-      console.log(response.data); // Resposta do servidor
-      // Redirecionar com base no tipo de usuário
-      if (userType === 'professor') {
-        this.$router.push('/Professor');
-      } else if (userType === 'aluno') {
-        this.$router.push('/Aluno');
-      } else {
-        // Tratar outros tipos de usuário aqui
+      const axios = require('axios');
+      if (!this.validateEmail(this.loginEmail)) {
+        this.isEmailInvalid = true;
+        this.isPasswordInvalid = false;
+        return;
       }
-    })
-    .catch((error) => {
-      console.error(error);
-      // Tratar erros de solicitação aqui
-    });
-},
+
+      let userType; // Declaração da variável userType
+
+      if (this.isProfessorChecked) { // Verifica se a opção isProfessorChecked é verdadeira
+        userType = 'professor'; // Atribui o valor 'professor' à variável userType
+      } else if (this.isAlunoChecked) {
+        userType = 'aluno'; // Atribui o valor 'aluno' à variável userType
+      } else {
+        userType = 'usuario'; // Atribui o valor 'usuario' à variável userType
+      }
+
+      // Dados do formulário
+      const formData = {
+        email: this.loginEmail,
+        senha: this.loginPassword,
+        userType: userType
+      };
+
+      // Enviar solicitação para o backend
+      axios.post('http://localhost:3000/login', formData)
+        .then((response) => {
+          console.log(response.data); // Resposta do servidor
+          // Redirecionar com base no tipo de usuário
+          if (userType === 'professor') {
+            this.$router.push('/Professor');
+          } else if (userType === 'aluno') {
+            this.$router.push('/Aluno');
+          } else {
+            // Tratar outros tipos de usuário aqui
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          // Tratar erros de solicitação aqui
+        });
+    },
     exibirDados() {
       const dados = {
         email: this.loginEmail,
@@ -192,6 +195,11 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
+.bi{
+  margin-left: -25rem !important;
+  margin-top: 1rem;
+  cursor:pointer;
+}
 .body {
   font-family: 'Poppins', sans-serif;
   background-color: #1B2F4A;
@@ -444,7 +452,8 @@ h6 span {
   -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
 }
-.input{
+
+.input {
   cursor: pointer;
 }
 
@@ -515,5 +524,4 @@ h6 span {
   height: 26px;
   width: auto;
   display: block;
-}
-</style>
+}</style>

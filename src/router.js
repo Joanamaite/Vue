@@ -8,7 +8,7 @@ import Professor from "./components/PagProfessor/HomeProfessor";
 import ProjetosVisu from "./components/PagProfessor/ProjetosVisualizar.vue";
 import Adicionar from "./components/PagProfessor/AdicionarProjetos.vue";
 import Aluno from "./components/PagAluno/HomeAluno.vue";
-
+import ProjetoVisu from './components/ProjetoAdicionado/ProjetoVisu.vue';
 
 Vue.use(VueRouter);
 
@@ -21,6 +21,7 @@ const routes = [
   { path: '/projetos', component: ProjetosVisu },
   { path: '/Adicionar', component: Adicionar },
   { path: '/Aluno', component: Aluno },
+  { path: '/ProjetoVisu', component:ProjetoVisu },
 ];
 
 const router = new VueRouter({

@@ -128,7 +128,7 @@
             ></v-file-input>
         </div>
         <v-col class="d-flex justify-end button col-sm-2">
-        <v-btn size="x-large" class="color ">Adicionar</v-btn>
+        <v-btn size="x-large" class="color" @click="projetos">Adicionar</v-btn>
       </v-col>
     </div>
 </div>
@@ -151,6 +151,9 @@ export default {
         adicionar() {
             this.$router.push("/Adicionar");
         },
+        projetos(){
+            this.$router.push("/ProjetoVisu")
+        }
     },
 
 };
